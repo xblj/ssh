@@ -3,15 +3,15 @@
  * 生成第一个ssh：ssh-keygen -t rsa -f "~/.ssh/id_rsa_user1" -C "youremail2"
  * 生成第二个ssh： ssh-keygen -t rsa -f "~/.ssh/id_rsa_user2" -C "youremail2"
  * 在.ssh文件夹下新建.config文件，写如下内容：
- ~
+  <code>
   Host gitlab.com  // 这里gitlab的域名
   RSAAuthentication yes
- IdentityFile ~/.ssh/id_rsa_user1
+  IdentityFile ~/.ssh/id_rsa_user1
 
   Host github.com  // 这里是github的域名
   RSAAuthentication yes
   IdentityFile ~/.ssh/id_rsa_user2
- ~
+  </code>
  * 秘钥添加到ssh agent中：ssh-add ~/.ssh/id_rsa_user2
   + 如果出现Could not open a connection to your authentication agent的错误，就运行：
    1. ssh-agent bash
